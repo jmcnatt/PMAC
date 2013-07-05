@@ -59,7 +59,7 @@ sub printBodyClosing()
 	print <<"EOF";
 </div>
 <div id="footer">
-	Updated for the 2012/2013 Academic Year<br />
+	Updated for the 2013/2014 Academic Year<br />
 	For Use by the RIT Pep Band Onlyi
 </div>
 </div>
@@ -73,11 +73,11 @@ sub printNavigation()
 <div id="navigation">
 <h1>Information</h1>
 <ul>
-	<li><a href="#">Calendar</a></li>
-	<li><a href="#">Eboard</a></li>
-	<li><a href="#">Section Leaders</a></li>
-	<li><a href="#">Documents</a></li>
-	<li><a href="#">Links</a></li>
+	<li><a href="/page.view?id=calendar">Calendar</a></li>
+	<li><a href="/page.view?id=eboard">Eboard</a></li>
+	<li><a href="/page.view?id=sections">Section Leaders</a></li>
+	<li><a href="/page.view?id=documents">Documents</a></li>
+	<li><a href="/page.view?id=links">Links</a></li>
 </ul>
 <h1>Music</h1>
 <ul>

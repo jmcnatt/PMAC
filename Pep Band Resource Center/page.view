@@ -5,24 +5,33 @@ use warnings;
 
 require "components.pl";
 
-# Process the request
-my $query = $ENV{'QUERY_STRING'};
-
-
 &components::printDocOpening();
 &components::printHead();
 &components::printBodyOpening();
 &components::printNavigation();
-
-if (!$query) { &pageCalendar(); }
-if ($query =~ /^calendar$/i) { &pageCalendar(); }
-elsif ($query =~ /^eboard$/i) { &pageEboard(); }
-
-
-
+&processQuery();
 &components::printBodyClosing();
 &components::printDocClosing();
 
+sub processQuery()
+{
+	# Get the CGI Query, process the desired page
+	my $query = $ENV{'QUERY_STRING'};
+	my @querySplit = split($query, "/=/");
+	
+	my $id;
+	my $page;
+	if (scalar(@querySplit) == 2)
+	{
+		$id = $querySplit[0];
+		$page = $querySplit[1];
+	}
+	
+	if (!$query or !$id or ($id and !$page)) { &pageCalendar(); }
+	elsif ($id eq "id" and $page eq "calendar") { &pageCalendar(); }
+	elsif ($id eq "id" and $page eq "eboard") { &pageEboard(); }
+	else { &pageCalendar(); }
+}
 
 # Prints the calendar page
 sub pageCalendar()
