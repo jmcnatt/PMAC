@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /
+Disallow: /media
+Disallow: /cgi-bin
+Disallow: /music
+Disallow: /audio
+Disallow: /styles
