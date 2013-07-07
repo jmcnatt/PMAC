@@ -17,7 +17,7 @@ sub processQuery()
 {
 	# Get the CGI Query, process the desired page
 	my $query = $ENV{'QUERY_STRING'};
-	my @querySplit = split($query, "/=/");
+	my @querySplit = split('=', $query);
 	
 	my $id;
 	my $page;
