@@ -40,7 +40,12 @@ sub processQuery()
 		&components::printLibraryEntry($page);
 	}
 	
-	else { print "derp"; }
+	elsif ($id eq "error")
+	{
+		if ($page eq "404") { &components::printError404(); }
+	}
+	
+	else { &components::printError404(); }
 }
 
 # Prints the calendar page

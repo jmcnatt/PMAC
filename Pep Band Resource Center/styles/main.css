@@ -54,7 +54,8 @@ html, body {
 }
 
 #contentbubble {
-	padding: 5px;
+	padding-top: 5px;
+	padding-left: 10px;
 }
 
 #footer {
