@@ -30,7 +30,6 @@ EOF
 sub printHead()
 {
 	print <<"EOF";
-
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
 <meta name="robots" content="noindex, nofollow" />
@@ -47,10 +46,15 @@ sub printBodyOpening()
 	print <<"EOF";
 <body>
 <div id="container">
-<div id="header">
-<img src="/media/banner.jpg" alt="RIT Pep Band Resource Center" height="120" width="750" />
-</div>
-<div id="content-container">
+EOF
+}
+
+# Prints the beginning of the right-side content
+sub printContentOpening()
+{
+	print <<"EOF";
+<div id="content">
+<div id="contentbubble">
 EOF
 }
 
@@ -58,10 +62,13 @@ sub printBodyClosing()
 {
 	print <<"EOF";
 </div>
-<div id="footer">
-	Updated for the 2013/2014 Academic Year<br />
-	For Use by the RIT Pep Band Onlyi
 </div>
+<div id="clearfooter"><!-- Clear footer --></div>
+<div id="footer">
+	For Use by the RIT Pep Band Only
+</div>
+<div id="header">
+<img src="/media/banner.jpg" alt="RIT Pep Band Resource Center" height="120" width="750" />
 </div>
 </body>
 EOF
