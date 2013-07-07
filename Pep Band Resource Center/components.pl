@@ -64,6 +64,7 @@ sub printBodyClosing()
 </div>
 </div>
 <div id="clearfooter"><!-- Clear footer --></div>
+</div>
 <div id="footer">
 	For Use by the RIT Pep Band Only
 </div>
