@@ -58,6 +58,7 @@ sub printContentOpening()
 EOF
 }
 
+# Prints the ending of the html document
 sub printBodyClosing()
 {
 	print <<"EOF";
@@ -75,6 +76,7 @@ sub printBodyClosing()
 EOF
 }
 
+# Prints the navigation based on the navigation.xml file
 sub printNavigation()
 {
 	print <<"EOF";
@@ -139,58 +141,58 @@ sub printLibraryEntry()
 	print "<p>Click on the link to download the appropriate part.</p>";
 	print "<br />";
 	
-        my $parts_ref = $library{$song}{"parts"};
-        my %parts = %$parts_ref;
+	my $parts_ref = $library{$song}{"parts"};
+	my %parts = %$parts_ref;
 
-        print "<table class=\"music-table\">\n";
-        print "<th><!-- Filler --></th>\n";
-        print "<th><img src=\"/media/pdf.png\" alt=\"PDF\" height=\"16\" width=\"16\" />";
-        print "&#032;PDF</th>\n";
-        print "<th><img src=\"/media/picture.png\" alt=\"JPEG\" height=\"16\" width=\"16\" />\n";
-        print "&#032;JPG</th>\n";
+	print "<table class=\"music-table\">\n";
+	print "<th><!-- Filler --></th>\n";
+	print "<th><img src=\"/media/pdf.png\" alt=\"PDF\" height=\"16\" width=\"16\" />";
+	print "&#032;PDF</th>\n";
+	print "<th><img src=\"/media/picture.png\" alt=\"JPEG\" height=\"16\" width=\"16\" />\n";
+	print "&#032;JPG</th>\n";
 	
 	my $count = 1;
 	
 	foreach my $part (sort(keys(%parts)))
-        {
-                my $class = "even";
-                my $pdf;
-                my $jpg;
+	{
+		my $class = "even";
+		my $pdf;
+		my $jpg;
 
 
-                if ($count % 2) { $class = "odd"; }
-                if ($parts{$part}{"pdf"} =~ /\w+?\.pdf/i)
-                {
-                        $pdf = $library{$song}{"path"} . "pdf/" . $parts{$part}{"pdf"};
-                }
+		if ($count % 2) { $class = "odd"; }
+		if ($parts{$part}{"pdf"} =~ /\w+?\.pdf/i)
+		{
+			$pdf = $library{$song}{"path"} . "pdf/" . $parts{$part}{"pdf"};
+		}
 
-                if ($parts{$part}{"jpg"} =~ /\w+?\.jpg/i)
-                {
-                        $jpg = $library{$song}{"path"} . "jpg/" . $parts{$part}{"jpg"};
-                }
+		if ($parts{$part}{"jpg"} =~ /\w+?\.jpg/i)
+		{
+			$jpg = $library{$song}{"path"} . "jpg/" . $parts{$part}{"jpg"};
+		}
 
-                if (!defined($pdf) && !defined($jpg)) { next; }
+		if (!defined($pdf) && !defined($jpg)) { next; }
 
-                print "<tr class=\"$class\">\n";
-                print "<td>" . $parts{$part}{"name"} . "</td>\n";
-                print "<td class=\"pdf\">";
+		print "<tr class=\"$class\">\n";
+		print "<td>" . $parts{$part}{"name"} . "</td>\n";
+		print "<td class=\"pdf\">";
 
-                if ($pdf) { print "<a href=\"$pdf\" target=\"_blank\">Click Here</a>"; }
-                else { print "Not Available"; }
+		if ($pdf) { print "<a href=\"$pdf\" target=\"_blank\">Click Here</a>"; }
+		else { print "Not Available"; }
 
 		print "</td>\n";
-                print "<td class=\"jpeg\">";
-                if ($jpg) { print "<a href=\"$jpg\" target=\"_blank\">Click Here</a>"; }
-                else { print "Not Available"; }
+		print "<td class=\"jpeg\">";
+		if ($jpg) { print "<a href=\"$jpg\" target=\"_blank\">Click Here</a>"; }
+		else { print "Not Available"; }
 
-                print "</td>\n";
-                print "</tr>\n";
+		print "</td>\n";
+		print "</tr>\n";
 
-                $count++;
+		$count++;
 
-        }
+	}
 
-        print "</table>\n";
+	print "</table>\n";
 }
 
 sub printEboardContact()
@@ -227,6 +229,21 @@ sub printEboardContact()
 		print "</p>\n";
 
 	}
+}
+
+########################################################
+# Error Subroutines
+########################################################
+
+# Prints the 404 message
+sub printError404()
+{
+	print <<"EOF";
+<h1>Not Found</h1>
+<p>Requested resource was not found.  Time to start beating someone over the head!</p>
+<br />
+<img src="/media/sadtiger.jpg" width="350" height="300" />
+EOF
 }
 
 1;
