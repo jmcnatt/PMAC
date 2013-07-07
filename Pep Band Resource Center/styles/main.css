@@ -41,7 +41,7 @@ html, body {
 	left: -4px;
 	padding: 0px;
 	background: #FFFFFF;
-	border: 0px;
+	border-right: 4px solid black;
 }
 
 #content {
