@@ -65,6 +65,4 @@ sub pageEboard()
 <h1>Eboard</h1>
 EOF
 	&components::printEboardContact();
-	
-	print "</div>\n";
 }
