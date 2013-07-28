@@ -29,10 +29,11 @@ sub processQuery()
 	}
 	
 	if (!defined($query) or !defined($id) or (defined($id) and !defined($page))) { &pageCalendar(); }
-	if ($id eq "id")
+	elsif ($id eq "id")
 	{
 		if ($page eq "calendar") { &pageCalendar(); }
-		if ($page eq "eboard") { &pageEboard(); }
+		elsif ($page eq "eboard") { &pageEboard(); }
+		else { &components::printError404(); }
 	}
 	
 	elsif ($id eq "song")
