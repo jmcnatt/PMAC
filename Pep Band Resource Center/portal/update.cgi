@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-my @results = `/usr/local/git/update.pl`;
+my @results = `/usr/local/git/PMAC/update.pl`;
 
 print "content-type: text/html\n\n";
 print <<"EOF";
